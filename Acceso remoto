@@ -1,0 +1,32 @@
+Para acceder remotamaente a la Raspberry Pi, primero se hacen unas configuraciones del sistema:
+
+En el command prompt ingresamos: sudo su
+                                  raspi-config
+1) Selecciona primero 'update'
+
+2) En advanced options -> expand file system
+
+3) interfacing options -> ssh [enable]
+
+Ahora rebooteamos la Raspi.
+Después de haberse reiniciado se obtiene la direccion ip de la RASPI:
+En el command prompt ingresamos: hostname -I
+Guardamos la direccion ip porque va a servir más adelante.
+
+Ahora instalamos los programas que permiten la conexion:
+
+removemos primero estos programos porque si hay versiones anteriores puede interrumpir el funcionamiento
+: xrdp, vnc4server, tightvncserver
+En el command prompt: sudo apt-get remove xrdp vnc4server tightvncserver
+                      sudo apt-get install tightvncserver
+                      sudo apt-get install xrdp
+                      
+Ahora en windows podemos acceder al command prompt de la Raspi por medio de Putty, abrimos putty,
+luego ingresamos el ip de la raspi, y nos van a pedir el username y password. El username y password
+se puede ver en la configuracion del sistema en (sudo su
+                                                 raspi-config)
+Por otro lado para acceder al interfaz gráfica, se abre el programa Conexion a Escritorio Remoto, que
+se encuentra ubicado en el folder accesorios.
+Se abre el programa se ingresa el ip y se ingresa el username y password y se podrá ver la interfaz
+gráfica de la Raspi.
+                                                 
